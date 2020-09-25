@@ -1,14 +1,15 @@
 import matplotlib.pyplot as plt
-import math
+import math 
 import numpy as np
 y=[]
 def f(x,y):
     #enter function here, solve in terms dy/dx=....
-    return float((20+7*math.sin(2*x)-y)/10)
+    return float(math.log(x*y))
 h=float(input("Enter step\n"))
 y.append(float(input("Enter initial condition y0\n")))
 limit=int(input("Enter superior limit\n"))
-x=np.linspace(0,limit,limit*limit)
+x0=int(input("Enter starting value for x\n"))
+x=np.linspace(x0,limit,limit*limit)
 for i in range (0,(len(x)-1)):
     k_1 = float(f(x[i],y[i]))
     k_2 = float(f(x[i]+0.5*h,y[i]+0.5*h*k_1))
@@ -21,5 +22,3 @@ plt.xlabel("time")
 plt.title("Runge Kutta 4")
 plt.xlim(left=0)
 plt.show()
-
-      
